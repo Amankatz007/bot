@@ -1,10 +1,8 @@
-import tensorflow as tf
-import numpy as np
-
-# preprocessed data
-import data_utils
 import data_prep
 import data_utils_1
+
+#data preprocess
+data_prep.process_data()
 
 # load data from pickle and npy files
 metadata, idx_q, idx_a = data.load_data(PATH='./')
@@ -36,4 +34,4 @@ train_batch_gen = data_utils_1.rand_batch_gen(trainX, trainY, batch_size)
 
 
 #sess = model.restore_last_session()
-sess = model.train(train_batch_gen, val_batch_gen)
+model.train(train_batch_gen, val_batch_gen)
